@@ -1,0 +1,106 @@
+*{/*전체화면에 대한 화면설정*/
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* 밝은테마색상*/
+body[data-theme="light"]{
+    --color-1:rgb(158, 212, 253);/*-- 요게 뭔지 알아보기*/
+    --color-2: rgb(245, 228, 228);
+    --color-3: rgb(170, 162, 162);
+    --color-4: rgb(100,82,110);
+}
+
+/*어두운테마*/
+body[data-theme="dark"]{
+    --color-1: rgb(20, 16, 48);
+    --color-2: rgb(206, 206, 206);
+    --color-3: rgb(17, 20, 88);
+    --color-4: rgb(51, 55, 58);
+}
+
+body{
+    font-family: 'Montserrat' , sans-serif;/*montserrat 폰트가 뭘까*/
+    color: var(--color-4);
+}
+section{
+    background-color: var(--color-1);
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{ /*.으로 컨테이너 클래스선언함*/
+width:90%;
+margin: 0 auto;
+background-color: var(--color-2);
+border-radius: 10px;
+padding: 10px;
+max-width: 500px;
+}
+h1{/*h1 태그 세부설정다시하기*/
+    font-size: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+p{
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 2px;/*자간*/
+    line-height: 19px;/*행간*/
+}
+button{
+    background-color: var(--color-3);
+    padding: 10px 20px;
+    border: none;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: var(--color-2);
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.theme-switcher{
+    position: absolute;
+    right: 30px;
+    top: 10px;
+}
+input{
+    width: 0;
+    height:0;
+    visibility: hidden;
+}
+label{
+    display: block;
+    text-indent: -9999px;
+    height: 30px;
+    width: 60px;
+    background-color: white;
+    border-radius: 30px;
+    position:sticky;
+    transition: .5s ease background-color;
+}
+label::after{
+    position: absolute;
+    content:'';
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: gray;
+    top:50%;
+    left: 5px;
+    transform: translatey(-50%);
+    transition: .5s ease;
+}
+
+input:checked + label{
+    background-color: gray;
+    border: 3px solid white;
+}
+input:checked + label::after{
+    background-color: white;
+    left: calc(100% - 21px);
+}
